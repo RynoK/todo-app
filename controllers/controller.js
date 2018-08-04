@@ -20,7 +20,7 @@ database.run();
 
 module.exports=function(app){
 
-  app.get('/todo',function(req,res){
+  app.get('/',function(req,res){
 database.todo.find({},function(err, data){
   if(err) throw err;
   console.log('finded..',data);
@@ -31,7 +31,7 @@ database.todo.find({},function(err, data){
 
   });
 
-app.post('/todo',urlencodedParser,function(req,res){
+app.post('/',urlencodedParser,function(req,res){
   var newItem = database.todo(req.body).save(function(err,data){
     if(err) throw err;
       res.json(data);
@@ -39,7 +39,7 @@ app.post('/todo',urlencodedParser,function(req,res){
 
 });
 
-app.delete('/todo/:item',function(req,res){
+app.delete('/:item',function(req,res){
   database.todo.find({item: req.params.item.replace(/\-/g, " ")}).remove(function(err,data){
     if(err) throw err;
     res.json(data);

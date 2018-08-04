@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     $.ajax({
       type:'POST',
-      url:'/todo',
+      url:'/',
       data:todo,
       succes:function(data){
         location.reload();
@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     $.ajax({
       type:'DELETE',
-      url:'/todo/'+item,
+      url:'/'+item,
       success:function(data){
         location.reload();
       }
